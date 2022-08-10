@@ -1,4 +1,5 @@
 from moesif_aws_lambda import *
+import json
 
 def identify_user(event, context):
     return 'my_user_id'
@@ -43,9 +44,9 @@ def lambda_handler(event, context):
     return {
         'statusCode': 200,
         'isBase64Encoded': False,
-        'body': {
+        'body': json.dumps({
             'msg': 'Hello from Lambda!'
-            },
+            }),
         'headers': {
             'Content-Type': 'application/json'
             }
